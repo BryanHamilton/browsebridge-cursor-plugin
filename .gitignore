@@ -1,0 +1,6 @@
+.DS_Store
+*.pem
+.env
+.env.*
+**/bbk_*
+**/*credentials*
