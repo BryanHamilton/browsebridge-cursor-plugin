@@ -5,7 +5,7 @@ This repository is a **Cursor Plugin** that configures a remote MCP client. It d
 ## What connects where
 
 - Cursor talks to **`https://mcp.browsebridge.com/mcp`** using the API key you enter at install (`BROWSEBRIDGE_API_KEY`).
-- The Chrome extension (installed separately from [browsebridge.com](https://browsebridge.com)) shares tabs you explicitly **Enable**.
+- The [Browse Bridge Chrome extension](https://chromewebstore.google.com/detail/browse-bridge/fbnpefbmmljjgnlagkcbnnfknpomhidb) shares tabs you explicitly **Enable**.
 - Page content, screenshots, and action results are processed to fulfill agent `browser_*` tools according to your Browse Bridge account plan and legal attestations.
 
 ## What this plugin does **not** do
@@ -16,14 +16,10 @@ This repository is a **Cursor Plugin** that configures a remote MCP client. It d
 
 ## Product privacy policy
 
-**Status (2026-10-01):** No public Privacy Policy URL was found on browsebridge.com
-(`/privacy`, `/privacy-policy`, `/legal/privacy` all returned 404). Related public
-legal pages that *do* exist: [Terms](https://browsebridge.com/terms),
-[Acceptable use](https://browsebridge.com/acceptable-use),
-[Legal versions](https://browsebridge.com/legal/versions), [FAQ](https://browsebridge.com/faq).
-
-When a product Privacy Policy is published (recommended path:
-`https://browsebridge.com/privacy`), replace this paragraph with a direct link.
+- [Privacy Policy](https://browsebridge.com/privacy)
+- [Terms](https://browsebridge.com/terms)
+- [Acceptable use](https://browsebridge.com/acceptable-use)
+- [Legal versions](https://browsebridge.com/legal/versions)
 
 ## Your responsibilities
 

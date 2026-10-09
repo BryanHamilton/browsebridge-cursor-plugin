@@ -4,13 +4,15 @@ Cursor Plugin that wires **Browse Bridge** remote MCP into Cursor so agents can 
 
 - **MCP:** `https://mcp.browsebridge.com/mcp`
 - **Site:** [https://browsebridge.com](https://browsebridge.com)
+- **Chrome extension:** [Chrome Web Store](https://chromewebstore.google.com/detail/browse-bridge/fbnpefbmmljjgnlagkcbnnfknpomhidb)
 - **License:** MIT
 
 ## Prerequisites
 
-1. A Browse Bridge account and API key from **Dashboard → Connections** (key prefix `bbk_`).
-2. The **Browse Bridge Chrome extension** installed and signed in (same account).
-3. Cursor with Plugins / MCP support.
+1. Create an account at [https://browsebridge.com/sign-up](https://browsebridge.com/sign-up) (plans: [https://browsebridge.com/plans](https://browsebridge.com/plans)).
+2. Install the Browse Bridge extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/browse-bridge/fbnpefbmmljjgnlagkcbnnfknpomhidb) and sign in with the same account.
+3. In the dashboard, open [Connections](https://browsebridge.com/dashboard/connections) and create an API key (starts with `bbk_`). Keep it secret.
+4. Cursor with plugin/MCP support.
 
 ## Install (Marketplace / local)
 
@@ -25,7 +27,7 @@ Install **browse-bridge** from the Cursor Marketplace and paste your API key whe
 cp -R /path/to/browsebridge-cursor-plugin ~/.cursor/plugins/local/browse-bridge
 ```
 
-Restart Cursor, open Plugins, configure `BROWSEBRIDGE_API_KEY`, confirm MCP tools appear (`browser_observe`, `browser_click`, etc.).
+Restart Cursor, open Customize, configure `BROWSEBRIDGE_API_KEY`, confirm MCP tools appear (`browser_observe`, `browser_click`, etc.).
 
 ### Manual `mcp.json` snippet
 
@@ -42,10 +44,12 @@ Restart Cursor, open Plugins, configure `BROWSEBRIDGE_API_KEY`, confirm MCP tool
 }
 ```
 
+Plugin variables only fill in inside the plugin, so for a manual config use your real key or `${env:BROWSEBRIDGE_API_KEY}`.
+
 ## Usage
 
 1. Open a normal website tab (not `chrome://`).
-2. Open the Browse Bridge extension popup → **Enable Agent** → Agree to the enable confirmation.
+2. Click the Browse Bridge toolbar icon, then Enable on the tab you want to share. Accept the confirmation and any Chrome permission prompt. Use Take control (or Ctrl+Shift+Period) to take the tab back at any time.
 3. In Cursor, use MCP tools such as `browser_list_sessions`, `browser_observe`, `browser_click`, `browser_screenshot`.
 4. Challenges / sensitive sites may pause the agent for human Take over or Approve.
 
@@ -60,15 +64,6 @@ Declared in `.cursor-plugin/plugin.json` → `variables` and referenced only as 
 ## Privacy & security
 
 See [PRIVACY.md](./PRIVACY.md) and [SECURITY.md](./SECURITY.md).
-
-## Publish checklist (maintainers)
-
-- [ ] Repository set to BryanHamilton/browsebridge-cursor-plugin — create the empty public repo on GitHub then push
-- [x] Support email confirmed as `support@browsebridge.com` (also `abuse@browsebridge.com` on site)
-- [ ] Public GitHub repo on `main` with this layout
-- [ ] Local plugin smoke test
-- [ ] Submit at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish)
-- [ ] Optional: also list on [cursor.directory](https://cursor.directory)
 
 ## Repo layout
 
