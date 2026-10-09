@@ -4,14 +4,14 @@ Cursor Plugin that wires **Browse Bridge** remote MCP into Cursor so agents can 
 
 - **MCP:** `https://mcp.browsebridge.com/mcp`
 - **Site:** [https://browsebridge.com](https://browsebridge.com)
-- **Chrome extension:** [Chrome Web Store](https://chromewebstore.google.com/detail/browse-bridge/fbnpefbmmljjgnlagkcbnnfknpomhidb)
+- **Chrome extension:** listed on the [Chrome Web Store](https://chromewebstore.google.com/detail/browse-bridge/fbnpefbmmljjgnlagkcbnnfknpomhidb)
 - **License:** MIT
 
 ## Prerequisites
 
 1. Create an account at [https://browsebridge.com/sign-up](https://browsebridge.com/sign-up) (plans: [https://browsebridge.com/plans](https://browsebridge.com/plans)).
-2. Install the Browse Bridge extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/browse-bridge/fbnpefbmmljjgnlagkcbnnfknpomhidb) and sign in with the same account.
-3. In the dashboard, open [Connections](https://browsebridge.com/dashboard/connections) and create an API key (starts with `bbk_`). Keep it secret.
+2. Install the Browse Bridge Chrome extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/browse-bridge/fbnpefbmmljjgnlagkcbnnfknpomhidb) and sign in with the same account.
+3. Sign in and open [Connections](https://browsebridge.com/sign-in?next=/dashboard/connections) to create an API key (starts with `bbk_`). Keep it secret.
 4. Cursor with plugin/MCP support.
 
 ## Install (Marketplace / local)
