@@ -53,6 +53,32 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 3. In Cursor, use MCP tools such as `browser_list_sessions`, `browser_observe`, `browser_click`, `browser_screenshot`.
 4. Challenges / sensitive sites may pause the agent for human Take over or Approve.
 
+## Tools (17)
+
+| Tool | What it does |
+| --- | --- |
+| `browser_list_sessions` | List Enabled shared tabs. |
+| `browser_get_status` | Control mode, URL, `deviceOnline`, pending approvals. |
+| `browser_observe` | Semantic page tree + `observationId` / `elementId`s. |
+| `browser_screenshot` | Visible-tab JPEG as MCP image content. |
+| `browser_click` | Click an observed element. Optional `button`: `"left"` (default), `"right"`, or `"middle"`. |
+| `browser_type` | Set a control's value (not a password). |
+| `browser_select` | Choose a listed `<option>`. |
+| `browser_press_key` | Key in the focused (or named) element. |
+| `browser_hover` | `mouseover` / `mouseenter` on an observed element. |
+| `browser_scroll` | Scroll the page or an element into view. |
+| `browser_navigate` | Go to an allowed http(s) URL. |
+| `browser_back` | History back. |
+| `browser_forward` | History forward. |
+| `browser_reload` | Reload the tab. |
+| `browser_wait` | Pause 0–30000 ms. |
+| `browser_release_control` | Give the tab back to the human (`controlMode: "human"`). |
+| `browser_cancel_approval` | Withdraw a pending agent approval (`approvalId`). |
+
+### Approvals
+
+Sensitive-site clicks/types/navigations and cross-origin navigations (and cross-origin link clicks) return **`APPROVAL_REQUIRED`**. The human Approves or Denies in the Chrome side panel. The agent can withdraw its own request with **`browser_cancel_approval`** (`APPROVAL_CANCELLED` — that is not a human Deny). While an approval is pending, observe/screenshot/wait/get_status/list_sessions/release_control still run.
+
 ## Configuration
 
 | Variable | Required | Description |
