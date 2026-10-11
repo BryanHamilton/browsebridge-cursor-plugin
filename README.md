@@ -58,7 +58,7 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 | Tool | What it does |
 | --- | --- |
 | `browser_list_sessions` | List Enabled shared tabs. |
-| `browser_get_status` | Control mode, URL, `deviceOnline`, pending approvals. |
+| `browser_get_status` | Control mode, URL, `deviceOnline`, pending approvals, remaining monthly quota (`actionsRemaining`, `screenshotsRemaining`, `quotaExceeded`, `quotaResetAt`). |
 | `browser_observe` | Semantic page tree + `observationId` / `elementId`s. |
 | `browser_screenshot` | Visible-tab JPEG as MCP image content. |
 | `browser_click` | Click an observed element. Optional `button`: `"left"` (default), `"right"`, or `"middle"`. |
@@ -74,6 +74,10 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 | `browser_wait` | Pause 0–30000 ms. |
 | `browser_release_control` | Give the tab back to the human (`controlMode: "human"`). |
 | `browser_cancel_approval` | Withdraw a pending agent approval (`approvalId`). |
+
+### JavaScript dialogs
+
+Page `alert` / `confirm` / `prompt` are auto-handled so they cannot freeze the tab: **alerts are accepted**, **confirms are dismissed**, and **prompts return `null`**. The handled dialog is reported in the `dialog` field on click (and in `dialogs` on observe).
 
 ### Approvals
 
