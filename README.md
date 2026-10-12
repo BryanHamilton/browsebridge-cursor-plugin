@@ -58,7 +58,7 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 | Tool | What it does |
 | --- | --- |
 | `browser_list_sessions` | List Enabled shared tabs. |
-| `browser_get_status` | Control mode, URL, `deviceOnline`, pending approvals, remaining monthly quota (`actionsRemaining`, `screenshotsRemaining`, `quotaExceeded`, `quotaResetAt`). |
+| `browser_get_status` | Control mode, URL, `deviceOnline`, pending approvals, remaining monthly quota (`actionsRemaining`, `screenshotsRemaining`, `quotaExceeded`, `quotaResetAt`). Tools return `QUOTA_EXCEEDED` when a monthly quota is exhausted. |
 | `browser_observe` | Semantic page tree + `observationId` / `elementId`s. |
 | `browser_screenshot` | Visible-tab JPEG as MCP image content. |
 | `browser_click` | Click an observed element. Optional `button`: `"left"` (default), `"right"`, or `"middle"`. |
