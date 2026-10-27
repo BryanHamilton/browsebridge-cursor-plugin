@@ -27,7 +27,7 @@ Install **browse-bridge** from the Cursor Marketplace and paste your API key whe
 cp -R /path/to/browsebridge-cursor-plugin ~/.cursor/plugins/local/browse-bridge
 ```
 
-Restart Cursor, open Customize, configure `BROWSEBRIDGE_API_KEY`, confirm MCP tools appear (`browser_observe`, `browser_click`, etc.).
+Reload Window, open Customize, configure `BROWSEBRIDGE_API_KEY`, confirm MCP tools appear (`browser_observe`, `browser_click`, etc.).
 
 ### Manual `mcp.json` snippet
 
@@ -53,7 +53,7 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 3. In Cursor, use MCP tools such as `browser_list_sessions`, `browser_observe`, `browser_click`, `browser_screenshot`.
 4. Challenges / sensitive sites may pause the agent for human Take over or Approve.
 
-## Tools (17)
+## Tools (19)
 
 | Tool | What it does |
 | --- | --- |
@@ -73,11 +73,13 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 | `browser_reload` | Reload the tab. |
 | `browser_wait` | Pause 0–30000 ms. |
 | `browser_release_control` | Give the tab back to the human (`controlMode: "human"`). |
+| `browser_handle_dialog` | Accept or dismiss a pending JavaScript `alert` / `confirm` / `prompt` (`action`: accept\|dismiss; optional `promptText` when accepting a prompt). |
 | `browser_cancel_approval` | Withdraw a pending agent approval (`approvalId`). |
+| `get_profile` | Read-only Browse Bridge user id for the signed-in account (no email, tokens, cookies, or page content). |
 
 ### JavaScript dialogs
 
-Page `alert` / `confirm` / `prompt` are auto-handled so they cannot freeze the tab: **alerts are accepted**, **confirms are dismissed**, and **prompts return `null`**. The handled dialog is reported in the `dialog` field on click (and in `dialogs` on observe).
+While the agent has control, a page `alert` / `confirm` / `prompt` stays **pending** until `browser_handle_dialog` (or about a 30-second timeout dismiss). Other click, type, and navigate calls while a dialog is open return **`DIALOG_PENDING`**. Native HTTP basic or digest sign-in prompts are not JavaScript dialogs (`HTTP_AUTH_REQUIRED`). The human completes or cancels them. Browse Bridge never types those credentials.
 
 ### Approvals
 

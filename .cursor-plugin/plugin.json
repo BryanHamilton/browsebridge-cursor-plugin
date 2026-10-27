@@ -1,6 +1,6 @@
 {
   "name": "browse-bridge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Shared-tab browser control for Cursor via Browse Bridge MCP: observe, click, type, navigate, and screenshot tabs the user has Enabled. Requires the Browse Bridge Chrome extension and a Browse Bridge API key.",
   "author": {
     "name": "Browse Bridge",
