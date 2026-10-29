@@ -53,7 +53,7 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 3. In Cursor, use MCP tools such as `browser_list_sessions`, `browser_observe`, `browser_click`, `browser_screenshot`.
 4. Challenges / sensitive sites may pause the agent for human Take over or Approve.
 
-## Tools (19)
+## Tools (20)
 
 | Tool | What it does |
 | --- | --- |
@@ -74,6 +74,7 @@ Plugin variables only fill in inside the plugin, so for a manual config use your
 | `browser_wait` | Pause 0–30000 ms. |
 | `browser_release_control` | Give the tab back to the human (`controlMode: "human"`). |
 | `browser_handle_dialog` | Accept or dismiss a pending JavaScript `alert` / `confirm` / `prompt` (`action`: accept\|dismiss; optional `promptText` when accepting a prompt). |
+| `browser_get_approval` | Read-only status of a pending approval (`approvalId`). Does not Approve, Deny, or cancel. |
 | `browser_cancel_approval` | Withdraw a pending agent approval (`approvalId`). |
 | `get_profile` | Read-only Browse Bridge user id for the signed-in account (no email, tokens, cookies, or page content). |
 
@@ -83,7 +84,7 @@ While the agent has control, a page `alert` / `confirm` / `prompt` stays **pendi
 
 ### Approvals
 
-Sensitive-site clicks/types/navigations and cross-origin navigations (and cross-origin link clicks) return **`APPROVAL_REQUIRED`**. The human Approves or Denies in the Chrome side panel. The agent can withdraw its own request with **`browser_cancel_approval`** (`APPROVAL_CANCELLED` — that is not a human Deny). While an approval is pending, observe/screenshot/wait/get_status/list_sessions/release_control still run.
+Sensitive site gates click, type, key, select, and navigation. Those actions, and cross-origin navigations (including cross-origin link clicks), return **`APPROVAL_REQUIRED`**. The human Approves or Denies in the Chrome side panel. **`browser_get_approval`** reads a pending approval and does not change it. The agent can withdraw its own request with **`browser_cancel_approval`** (`APPROVAL_CANCELLED` — that is not a human Deny). An expired approval returns **`APPROVAL_EXPIRED`**; the next request for that action returns a fresh **`APPROVAL_REQUIRED`**. While an approval is pending, observe/screenshot/wait/get_status/list_sessions/release_control still run.
 
 ## Configuration
 
@@ -103,6 +104,7 @@ See [PRIVACY.md](./PRIVACY.md) and [SECURITY.md](./SECURITY.md).
 .cursor-plugin/plugin.json
 mcp.json
 assets/logo.svg
+assets/icon.png
 README.md
 LICENSE
 PRIVACY.md
